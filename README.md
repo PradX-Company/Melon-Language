@@ -31,50 +31,43 @@ use these to have a better environment while coding in Melon
 ## Console
 <details>
   <summary>Click to expand console commands</summary>
-  
-  | Commands | Info |
-|----------|------|
-|> | move the cursor right by 1 |
-|< |   move the cursor left by 1 |
-|+ | add the Address that is selected in cursor |
-|- |   subtract the Address that is selected in cursor |
-|; |   print the Array in the screen |
-|compile |  compile the values into a executable file |
-|clear |  clears the screen |
-|reset |  resets all address |
-|run |  runs the script |
-|run-text |  executes the addresses in text format |
-|write |  writes a custom value into address |
-|jump |  jumps to a certain position |
-|copy |  copy the address to a specific place |
-|if |  check if the address is <your_value> or not |
-|calc |  do math |
-|var |  save a variable |
-|write-var |  write a saved variable to a address that is selected by cursor position |
-|read-var |  Read The variables |
-|var-def| Prints the lists of vars that is defined |
-|import | You can import build in librarys |
-|load-pkg | loads a package |
-|gen-pkg | generates a package with main.mlf |
-|fetch-pkg | downloads a pkg from [Citrullus Server](https://cdn.jsdelivr.net/gh/pradosh-arduino/Citrullus-Packages/) |
-| time | showns time it even has like `time.month` to show current month or `time.day` or `time.week` etc|
-|quit/exit |  closes melon |
-  
-### Heap
- | Commands | Info |
- |----------|------|
- |~malloc~ |  ~dynamic memory allocation, used with `import <next_line> heap`~ |
- |~free~ | ~returns back the values to the memory~ |
-  
- **going to get removed**
+
+|     Commands    |                                                    Info                                                    |           Syntax           |
+|-----------------|------------------------------------------------------------------------------------------------------------|----------------------------|
+| >               |  move the cursor right by 1                                                                                |  >                         |
+| <               |    move the cursor left by 1                                                                               |  <                         |
+| +               |  add the Address that is selected in cursor                                                                |  +                         |
+| -               |    subtract the Address that is selected in cursor                                                         | -                          |
+| ;               |    print the Array in the screen                                                                           | ;                          |
+| compile         |   compile the arrays/addresses into a executable file                                                      | compile                    |
+| compile-script  |   compile the melon language file to melon language executable                                             | compile-script |
+| clear           |   clears the screen                                                                                        | clear                      |
+| reset           |   resets all address                                                                                       | reset                      |
+| run             |   runs the script                                                                                          | run                        |
+| cta             |   prints the addresses in text format                                                                      | cta                        |
+| write           |   writes a custom value into address                                                                       |  write \n <value>          |
+| copy            |   copy the address to the cursor position                                                                  |  copy \n <value>           |
+| if              |   (UNFINISHED) check if the address is <your_value> or not                                                 |                            |
+| calc            |   do math                                                                                                  |  calc \n <value>           |
+| var             |   save a variable                                                                                          |  var \n <var_name>|
+| change-var      |   change variable value                                                                                    |  change-var \n <var_name>|
+| delete-var      |   Remove a variable                                                                                        |  delete-var \n <val_name>  |
+| delete-all-vars |  Remove All variables                                                                                      |  delete-all-vars           |
+| lock-var        |  lock a variable                                                                                           | lock-var \n <name_>           |
+| importl         |  Import build in libraries                                                                                 |  importl \n <library_name> |
+| load-pkg        |  loads a package                                                                                           |  load-pkg \n <name_>        |
+| gen-pkg         |  generates a package with main.mlf                                                                         |  gen-pkg                   |
+| fetch-pkg       |  downloads a pkg from [Citrullus Server](https://cdn.jsdelivr.net/gh/pradosh-arduino/Citrullus-Packages/)  |  fetch-pkg \n <name_>       |
+|  time           |  shows time it even has like `time.month` to show current month or `time.day` or `time.week` etc           |  time                      |
+| quit/exit       |   closes melon                                                                                             |  quit (OR) exit            |
  
 ### Graphics
- | Commands | Info |
- |----------|------|
- | println | prints a text then goes to a new line |
- | printf | prints a text |
- | colour | changes console colour |
- | set-cursor-pos | sets cursor pos |
+ | Commands | Info | Syntax |
+ |----------|------|----|
+ | println | prints a text then goes to a new line | `println \n "<text>"`
+ | printf | prints a text | `printf \n "<text>"`
+ | colour | changes console colour | `colour \n <fg>,<bg>`
+ | set-cursor-pos | sets cursor pos | `set-cursor-pos \n <x>,<y>`
   
 </details>
  
@@ -82,29 +75,28 @@ use these to have a better environment while coding in Melon
   <details>
     <summary>Click to expand scripting commands</summary>
     
-| Commands | Info |
-|----------|------|
-|> | move the cursor right by 1 |
-|< |   move the cursor left by 1 |
-|+ | add the Address that is selected in cursor |
-|- |   subtract the Address that is selected in cursor |
-|; |   print the Array in the screen |
-|clear |  clears the screen |
-|reset |  resets all address |
-|run-text |  executes the program in text format |
+| Commands | Info | Syntax|
+|----------|------|--|
+|function| creates a new function | function <name> \n end for calling: <name>~()|
+|> | move the cursor right by 1 |>|
+|< |   move the cursor left by 1 |<
+|+ | add the Address that is selected in cursor |+
+|- |   subtract the Address that is selected in cursor |-
+|; |   print the Array in the screen |;
+|clear |  clears the screen |clear
+|reset |  resets all address |reset
 |write |  writes a custom value into address |
-|jump |  jumps to a certain position |
+|jump |  jumps to a line number |
 |copy |  copy the address to a specific place |
 |if |  check if the address is <your_value> or not |
 |calc |  do math |
-|var |  save a variable |
 |write-var |  write a saved variable to a address that is selected by cursor position |
-|read-var |  Read The variables |
-|find-var | Find every variables |
+|convert| text to address array |
 | goto | goto start to loop infinitly or goto end to end the script much like return in C# |
 | sleep | A thread based timer (Milliseconds) |
 | importf | Import other .mlf to your main.mlf |
 | importl | imports any built-in library |
+|for| for loops | for i=1; i-10; i=+1 \n fo-end |
 |quit |  quit the console with a error code|
 
 ### Graphics
@@ -121,22 +113,26 @@ use these to have a better environment while coding in Melon
   Now melon has it's own package system called as Citrullus API, you can create your own packages too.
 
 <h1 align="center">💻 <strong>Setup</strong></h1>
+    
+Arguments:
   
-After Getting .zip file if you run `Melon Language.exe` it will not run you need arguments here is the list:
-  | Argument | Syntax | Is Needed |
-  |----------|--------|----------|
-  |--output-format | --output-format <your_format> | Yes |
-  |--output-name | --output-name <your_name> | Yes |
-  |--output-path | --output-path <your_path> | Yes |
-  |--program-path | --program-path <your_main.mlf_path> | Yes |
-  |--logging | --logging <true/false> | No |
-  |--splash-text | --splash-text <true/false> | No|
-  |--updates | --updates <true/false> | No |
-  |--clear-logs | --clear-logs <true/false> | No |
+|    Arguments    |                                 Comments                                 |
+|-----------------|--------------------------------------------------------------------------|
+| --output-path   |   The output path of the compiled binary                                 |
+| --output-format | The format of the compiled binary, currently supported are bin, hex, mle |
+| --output-name   |   The name of the compiled output                                        |
+| --program-path  |  the path for your main.mlf                                              |
+| --logging       |    Enable Logging                                                        |
+| --splash-text   |    Enable splash text                                                    |
+| --updates       |    Enable Update check                                                   |
+| --clear-logs    |    Clears logs when typing `quit` or `exit`                              |
+| --run           |    Runs a script without opening Melon                                   |
+| --compile       |    Compiles a script without opening Melon                               |
+| --new-project   |    Created a new project for melon                                       |
+| --help          |    Display this help screen.                                             |
+| --version       |    Display version information.                                          |
   
-  If you want definition for the Arguments always use `Melon_Language --help` or if you want to check version use `Melon_Language --version`
-  
-  You can use `#this#` to get the current directory (only for output path and program path) eg. `--output-path #this#`
+  You can use `#this#` to get the current directory (only for output path, program path and new project) eg. `--output-path #this#`
   
   <h1 align="center">💽 <strong>Hardware</strong></h1>
   
